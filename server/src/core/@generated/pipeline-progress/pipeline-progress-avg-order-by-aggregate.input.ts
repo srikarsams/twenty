@@ -7,4 +7,7 @@ export class PipelineProgressAvgOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     amount?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    probability?: keyof typeof SortOrder;
 }

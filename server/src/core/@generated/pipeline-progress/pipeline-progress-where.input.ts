@@ -31,6 +31,9 @@ export class PipelineProgressWhereInput {
     @Field(() => DateTimeNullableFilter, {nullable:true})
     closeDate?: DateTimeNullableFilter;
 
+    @Field(() => IntNullableFilter, {nullable:true})
+    probability?: IntNullableFilter;
+
     @Field(() => StringFilter, {nullable:true})
     pipelineId?: StringFilter;
 

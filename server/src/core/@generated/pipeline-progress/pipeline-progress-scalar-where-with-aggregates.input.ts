@@ -28,6 +28,9 @@ export class PipelineProgressScalarWhereWithAggregatesInput {
     @Field(() => DateTimeNullableWithAggregatesFilter, {nullable:true})
     closeDate?: DateTimeNullableWithAggregatesFilter;
 
+    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
+    probability?: IntNullableWithAggregatesFilter;
+
     @Field(() => StringWithAggregatesFilter, {nullable:true})
     pipelineId?: StringWithAggregatesFilter;
 

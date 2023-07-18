@@ -22,6 +22,9 @@ export class PipelineProgressUpdateInput {
     @Field(() => NullableDateTimeFieldUpdateOperationsInput, {nullable:true})
     closeDate?: NullableDateTimeFieldUpdateOperationsInput;
 
+    @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
+    probability?: NullableIntFieldUpdateOperationsInput;
+
     @Field(() => EnumPipelineProgressableTypeFieldUpdateOperationsInput, {nullable:true})
     progressableType?: EnumPipelineProgressableTypeFieldUpdateOperationsInput;
 

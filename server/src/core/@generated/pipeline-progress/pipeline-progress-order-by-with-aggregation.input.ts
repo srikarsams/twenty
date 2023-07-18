@@ -21,6 +21,9 @@ export class PipelineProgressOrderByWithAggregationInput {
     closeDate?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    probability?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     pipelineId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

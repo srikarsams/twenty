@@ -19,6 +19,9 @@ export class PipelineProgressUncheckedCreateWithoutPipelineStageInput {
     @Field(() => Date, {nullable:true})
     closeDate?: Date | string;
 
+    @Field(() => Int, {nullable:true})
+    probability?: number;
+
     @Field(() => String, {nullable:false})
     pipelineId!: string;
 

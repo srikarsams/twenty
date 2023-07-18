@@ -3,7 +3,7 @@ import { Company, PipelineProgress } from '~/generated/graphql';
 export type CompanyForBoard = Pick<Company, 'id' | 'name' | 'domainName'>;
 export type PipelineProgressForBoard = Pick<
   PipelineProgress,
-  'id' | 'amount' | 'closeDate' | 'progressableId'
+  'id' | 'amount' | 'closeDate' | 'progressableId' | 'probability'
 >;
 
 export type CompanyProgress = {

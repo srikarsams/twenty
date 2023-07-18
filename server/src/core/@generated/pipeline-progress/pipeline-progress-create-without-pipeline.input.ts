@@ -21,6 +21,9 @@ export class PipelineProgressCreateWithoutPipelineInput {
     @Field(() => Date, {nullable:true})
     closeDate?: Date | string;
 
+    @Field(() => Int, {nullable:true})
+    probability?: number;
+
     @Field(() => PipelineProgressableType, {nullable:false})
     progressableType!: keyof typeof PipelineProgressableType;
 

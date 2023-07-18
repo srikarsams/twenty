@@ -19,6 +19,9 @@ export class PipelineProgressCreateManyWorkspaceInput {
     @Field(() => Date, {nullable:true})
     closeDate?: Date | string;
 
+    @Field(() => Int, {nullable:true})
+    probability?: number;
+
     @Field(() => String, {nullable:false})
     pipelineId!: string;
 

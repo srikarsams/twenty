@@ -1932,6 +1932,7 @@ export type PipelineProgress = {
   pipelineId: Scalars['String'];
   pipelineStage: PipelineStage;
   pipelineStageId: Scalars['String'];
+  probability?: Maybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt: Scalars['DateTime'];
@@ -1944,6 +1945,7 @@ export type PipelineProgressCreateInput = {
   id?: InputMaybe<Scalars['String']>;
   pipeline: PipelineCreateNestedOneWithoutPipelineProgressesInput;
   pipelineStage: PipelineStageCreateNestedOneWithoutPipelineProgressesInput;
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -1955,6 +1957,7 @@ export type PipelineProgressCreateManyPipelineInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   pipelineStageId: Scalars['String'];
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -1971,6 +1974,7 @@ export type PipelineProgressCreateManyPipelineStageInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   pipelineId: Scalars['String'];
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -1988,6 +1992,7 @@ export type PipelineProgressCreateManyWorkspaceInput = {
   id?: InputMaybe<Scalars['String']>;
   pipelineId: Scalars['String'];
   pipelineStageId: Scalars['String'];
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -2033,6 +2038,7 @@ export type PipelineProgressCreateWithoutPipelineInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   pipelineStage: PipelineStageCreateNestedOneWithoutPipelineProgressesInput;
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -2044,6 +2050,7 @@ export type PipelineProgressCreateWithoutPipelineStageInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['String']>;
   pipeline: PipelineCreateNestedOneWithoutPipelineProgressesInput;
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -2056,6 +2063,7 @@ export type PipelineProgressCreateWithoutWorkspaceInput = {
   id?: InputMaybe<Scalars['String']>;
   pipeline: PipelineCreateNestedOneWithoutPipelineProgressesInput;
   pipelineStage: PipelineStageCreateNestedOneWithoutPipelineProgressesInput;
+  probability?: InputMaybe<Scalars['Int']>;
   progressableId: Scalars['String'];
   progressableType: PipelineProgressableType;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -2080,6 +2088,7 @@ export type PipelineProgressOrderByWithRelationInput = {
   pipelineId?: InputMaybe<SortOrder>;
   pipelineStage?: InputMaybe<PipelineStageOrderByWithRelationInput>;
   pipelineStageId?: InputMaybe<SortOrder>;
+  probability?: InputMaybe<SortOrder>;
   progressableId?: InputMaybe<SortOrder>;
   progressableType?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
@@ -2093,6 +2102,7 @@ export enum PipelineProgressScalarFieldEnum {
   Id = 'id',
   PipelineId = 'pipelineId',
   PipelineStageId = 'pipelineStageId',
+  Probability = 'probability',
   ProgressableId = 'progressableId',
   ProgressableType = 'progressableType',
   UpdatedAt = 'updatedAt',
@@ -2109,6 +2119,7 @@ export type PipelineProgressScalarWhereInput = {
   id?: InputMaybe<StringFilter>;
   pipelineId?: InputMaybe<StringFilter>;
   pipelineStageId?: InputMaybe<StringFilter>;
+  probability?: InputMaybe<IntNullableFilter>;
   progressableId?: InputMaybe<StringFilter>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
@@ -2121,6 +2132,7 @@ export type PipelineProgressUpdateInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   pipeline?: InputMaybe<PipelineUpdateOneRequiredWithoutPipelineProgressesNestedInput>;
   pipelineStage?: InputMaybe<PipelineStageUpdateOneRequiredWithoutPipelineProgressesNestedInput>;
+  probability?: InputMaybe<NullableIntFieldUpdateOperationsInput>;
   progressableId?: InputMaybe<StringFieldUpdateOperationsInput>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -2131,6 +2143,7 @@ export type PipelineProgressUpdateManyMutationInput = {
   closeDate?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  probability?: InputMaybe<NullableIntFieldUpdateOperationsInput>;
   progressableId?: InputMaybe<StringFieldUpdateOperationsInput>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -2214,6 +2227,7 @@ export type PipelineProgressUpdateWithoutPipelineInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   pipelineStage?: InputMaybe<PipelineStageUpdateOneRequiredWithoutPipelineProgressesNestedInput>;
+  probability?: InputMaybe<NullableIntFieldUpdateOperationsInput>;
   progressableId?: InputMaybe<StringFieldUpdateOperationsInput>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -2225,6 +2239,7 @@ export type PipelineProgressUpdateWithoutPipelineStageInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   pipeline?: InputMaybe<PipelineUpdateOneRequiredWithoutPipelineProgressesNestedInput>;
+  probability?: InputMaybe<NullableIntFieldUpdateOperationsInput>;
   progressableId?: InputMaybe<StringFieldUpdateOperationsInput>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -2237,6 +2252,7 @@ export type PipelineProgressUpdateWithoutWorkspaceInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   pipeline?: InputMaybe<PipelineUpdateOneRequiredWithoutPipelineProgressesNestedInput>;
   pipelineStage?: InputMaybe<PipelineStageUpdateOneRequiredWithoutPipelineProgressesNestedInput>;
+  probability?: InputMaybe<NullableIntFieldUpdateOperationsInput>;
   progressableId?: InputMaybe<StringFieldUpdateOperationsInput>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -2272,6 +2288,7 @@ export type PipelineProgressWhereInput = {
   pipelineId?: InputMaybe<StringFilter>;
   pipelineStage?: InputMaybe<PipelineStageRelationFilter>;
   pipelineStageId?: InputMaybe<StringFilter>;
+  probability?: InputMaybe<IntNullableFilter>;
   progressableId?: InputMaybe<StringFilter>;
   progressableType?: InputMaybe<EnumPipelineProgressableTypeFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
@@ -2867,6 +2884,7 @@ export type User = {
   id: Scalars['ID'];
   lastName?: Maybe<Scalars['String']>;
   lastSeen?: Maybe<Scalars['DateTime']>;
+  locale: Scalars['String'];
   metadata?: Maybe<Scalars['JSON']>;
   phoneNumber?: Maybe<Scalars['String']>;
   settings: UserSettings;
@@ -2934,6 +2952,7 @@ export type UserCreateWithoutAssignedCommentThreadsInput = {
   id?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
   lastSeen?: InputMaybe<Scalars['DateTime']>;
+  locale: Scalars['String'];
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<Scalars['String']>;
   settings: UserSettingsCreateNestedOneWithoutUserInput;
@@ -2953,6 +2972,7 @@ export type UserCreateWithoutAuthoredCommentThreadsInput = {
   id?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
   lastSeen?: InputMaybe<Scalars['DateTime']>;
+  locale: Scalars['String'];
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<Scalars['String']>;
   settings: UserSettingsCreateNestedOneWithoutUserInput;
@@ -2972,6 +2992,7 @@ export type UserCreateWithoutCommentsInput = {
   id?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
   lastSeen?: InputMaybe<Scalars['DateTime']>;
+  locale: Scalars['String'];
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<Scalars['String']>;
   settings: UserSettingsCreateNestedOneWithoutUserInput;
@@ -2992,6 +3013,7 @@ export type UserCreateWithoutWorkspaceMemberInput = {
   id?: InputMaybe<Scalars['String']>;
   lastName?: InputMaybe<Scalars['String']>;
   lastSeen?: InputMaybe<Scalars['DateTime']>;
+  locale: Scalars['String'];
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<Scalars['String']>;
   settings: UserSettingsCreateNestedOneWithoutUserInput;
@@ -3017,6 +3039,7 @@ export type UserOrderByWithRelationInput = {
   id?: InputMaybe<SortOrder>;
   lastName?: InputMaybe<SortOrder>;
   lastSeen?: InputMaybe<SortOrder>;
+  locale?: InputMaybe<SortOrder>;
   metadata?: InputMaybe<SortOrder>;
   phoneNumber?: InputMaybe<SortOrder>;
   settings?: InputMaybe<UserSettingsOrderByWithRelationInput>;
@@ -3040,6 +3063,7 @@ export enum UserScalarFieldEnum {
   Id = 'id',
   LastName = 'lastName',
   LastSeen = 'lastSeen',
+  Locale = 'locale',
   Metadata = 'metadata',
   PasswordHash = 'passwordHash',
   PhoneNumber = 'phoneNumber',
@@ -3141,6 +3165,7 @@ export type UserUpdateInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   lastName?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   lastSeen?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
+  locale?: InputMaybe<StringFieldUpdateOperationsInput>;
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   settings?: InputMaybe<UserSettingsUpdateOneRequiredWithoutUserNestedInput>;
@@ -3198,6 +3223,7 @@ export type UserUpdateWithoutAssignedCommentThreadsInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   lastName?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   lastSeen?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
+  locale?: InputMaybe<StringFieldUpdateOperationsInput>;
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   settings?: InputMaybe<UserSettingsUpdateOneRequiredWithoutUserNestedInput>;
@@ -3217,6 +3243,7 @@ export type UserUpdateWithoutAuthoredCommentThreadsInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   lastName?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   lastSeen?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
+  locale?: InputMaybe<StringFieldUpdateOperationsInput>;
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   settings?: InputMaybe<UserSettingsUpdateOneRequiredWithoutUserNestedInput>;
@@ -3236,6 +3263,7 @@ export type UserUpdateWithoutCommentsInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   lastName?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   lastSeen?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
+  locale?: InputMaybe<StringFieldUpdateOperationsInput>;
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   settings?: InputMaybe<UserSettingsUpdateOneRequiredWithoutUserNestedInput>;
@@ -3256,6 +3284,7 @@ export type UserUpdateWithoutWorkspaceMemberInput = {
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   lastName?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   lastSeen?: InputMaybe<NullableDateTimeFieldUpdateOperationsInput>;
+  locale?: InputMaybe<StringFieldUpdateOperationsInput>;
   metadata?: InputMaybe<Scalars['JSON']>;
   phoneNumber?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   settings?: InputMaybe<UserSettingsUpdateOneRequiredWithoutUserNestedInput>;
@@ -3299,6 +3328,7 @@ export type UserWhereInput = {
   id?: InputMaybe<StringFilter>;
   lastName?: InputMaybe<StringNullableFilter>;
   lastSeen?: InputMaybe<DateTimeNullableFilter>;
+  locale?: InputMaybe<StringFilter>;
   metadata?: InputMaybe<JsonNullableFilter>;
   phoneNumber?: InputMaybe<StringNullableFilter>;
   settings?: InputMaybe<UserSettingsRelationFilter>;
@@ -3765,16 +3795,17 @@ export type GetPipelineProgressQueryVariables = Exact<{
 }>;
 
 
-export type GetPipelineProgressQuery = { __typename?: 'Query', findManyPipelineProgress: Array<{ __typename?: 'PipelineProgress', id: string, pipelineStageId: string, progressableType: PipelineProgressableType, progressableId: string, amount?: number | null, closeDate?: string | null }> };
+export type GetPipelineProgressQuery = { __typename?: 'Query', findManyPipelineProgress: Array<{ __typename?: 'PipelineProgress', id: string, pipelineStageId: string, progressableType: PipelineProgressableType, progressableId: string, amount?: number | null, closeDate?: string | null, probability?: number | null }> };
 
 export type UpdateOnePipelineProgressMutationVariables = Exact<{
   id?: InputMaybe<Scalars['String']>;
   amount?: InputMaybe<Scalars['Int']>;
   closeDate?: InputMaybe<Scalars['DateTime']>;
+  probability?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type UpdateOnePipelineProgressMutation = { __typename?: 'Mutation', updateOnePipelineProgress?: { __typename?: 'PipelineProgress', id: string, amount?: number | null, closeDate?: string | null } | null };
+export type UpdateOnePipelineProgressMutation = { __typename?: 'Mutation', updateOnePipelineProgress?: { __typename?: 'PipelineProgress', id: string, amount?: number | null, closeDate?: string | null, probability?: number | null } | null };
 
 export type UpdateOnePipelineProgressStageMutationVariables = Exact<{
   id?: InputMaybe<Scalars['String']>;
@@ -5377,6 +5408,7 @@ export const GetPipelineProgressDocument = gql`
     progressableId
     amount
     closeDate
+    probability
   }
 }
     `;
@@ -5410,14 +5442,15 @@ export type GetPipelineProgressQueryHookResult = ReturnType<typeof useGetPipelin
 export type GetPipelineProgressLazyQueryHookResult = ReturnType<typeof useGetPipelineProgressLazyQuery>;
 export type GetPipelineProgressQueryResult = Apollo.QueryResult<GetPipelineProgressQuery, GetPipelineProgressQueryVariables>;
 export const UpdateOnePipelineProgressDocument = gql`
-    mutation UpdateOnePipelineProgress($id: String, $amount: Int, $closeDate: DateTime) {
+    mutation UpdateOnePipelineProgress($id: String, $amount: Int, $closeDate: DateTime, $probability: Int) {
   updateOnePipelineProgress(
     where: {id: $id}
-    data: {amount: {set: $amount}, closeDate: {set: $closeDate}}
+    data: {amount: {set: $amount}, closeDate: {set: $closeDate}, probability: {set: $probability}}
   ) {
     id
     amount
     closeDate
+    probability
   }
 }
     `;
@@ -5439,6 +5472,7 @@ export type UpdateOnePipelineProgressMutationFn = Apollo.MutationFunction<Update
  *      id: // value for 'id'
  *      amount: // value for 'amount'
  *      closeDate: // value for 'closeDate'
+ *      probability: // value for 'probability'
  *   },
  * });
  */

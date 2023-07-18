@@ -504,9 +504,10 @@ enum PipelineProgressableType {
 model PipelineProgress {
   /// @Validator.IsString()
   /// @Validator.IsOptional()
-  id        String    @id @default(uuid())
-  amount    Int?
-  closeDate DateTime?
+  id          String    @id @default(uuid())
+  amount      Int?
+  closeDate   DateTime?
+  probability Int?
 
   pipeline         Pipeline                 @relation(fields: [pipelineId], references: [id])
   pipelineId       String

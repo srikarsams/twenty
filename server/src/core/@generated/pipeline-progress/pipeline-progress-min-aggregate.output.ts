@@ -19,6 +19,9 @@ export class PipelineProgressMinAggregate {
     @Field(() => Date, {nullable:true})
     closeDate?: Date | string;
 
+    @Field(() => Int, {nullable:true})
+    probability?: number;
+
     @Field(() => String, {nullable:true})
     pipelineId?: string;
 
