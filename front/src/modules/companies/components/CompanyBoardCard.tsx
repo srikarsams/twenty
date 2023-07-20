@@ -41,6 +41,7 @@ const StyledBoardCard = styled.div<{ selected: boolean }>`
 
 const StyledBoardCardWrapper = styled.div`
   padding-bottom: ${({ theme }) => theme.spacing(2)};
+  width: 100%;
 `;
 
 const StyledBoardCardHeader = styled.div`
@@ -59,6 +60,7 @@ const StyledBoardCardHeader = styled.div`
     width: ${({ theme }) => theme.icon.size.md}px;
   }
 `;
+
 const StyledBoardCardBody = styled.div`
   display: flex;
   flex-direction: column;
@@ -164,7 +166,6 @@ export function CompanyBoardCard() {
               })
             }
           />
-
           <ProbabilityEditableField
             icon={<IconCheck />}
             value={pipelineProgress.probability}
