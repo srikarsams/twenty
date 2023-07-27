@@ -5,7 +5,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { EditorContent, useEditor } from '@tiptap/react';
-import { useCompletion } from 'ai/react';
 
 import { debounce } from '~/utils/debounce';
 
@@ -14,6 +13,7 @@ import { TiptapEditorProps } from '../editor-config/props';
 import { getPrevText } from '../editor-config/utils';
 
 import { EditorBubbleMenu } from './EditorBubbleMenu';
+import useAICompletion from '../hooks/useAICompletion';
 
 const StyledEditorContainer = styled.div`
   color: ${({ theme }) => theme.font.color.primary};
@@ -151,27 +151,27 @@ const StyledEditorContainer = styled.div`
   }
 `;
 
-export function Editor() {
-  const [content, setContent] = useState('');
-  const [saveStatus, setSaveStatus] = useState('Saved');
-
+export function Editor({
+  hydrationContent = '',
+}: {
+  hydrationContent: string;
+}) {
+  const [content, setContent] = useState(hydrationContent);
+  const [saveStatus, setSaveStatus] = useState(true);
   const [hydrated, setHydrated] = useState(false);
 
   const debouncedUpdates = debounce(async ({ editor }) => {
+    setSaveStatus(false);
     const json = editor.getJSON();
-    setSaveStatus('Saving...');
-    setContent(json);
-    // Simulate a delay in saving.
-    setTimeout(() => {
-      setSaveStatus('Saved');
-    }, 500);
+    setContent(json); // todo replace by apollo save
+    setSaveStatus(true);
   }, 750);
 
   const editor = useEditor({
     extensions: TiptapExtensions,
     editorProps: TiptapEditorProps,
     onUpdate: (e) => {
-      setSaveStatus('Unsaved');
+      setSaveStatus(false);
       const selection = e.editor.state.selection;
       const lastTwo = getPrevText(e.editor, {
         chars: 2,
@@ -194,17 +194,13 @@ export function Editor() {
     autofocus: 'end',
   });
 
-  const { complete, completion, isLoading, stop } = useCompletion({
-    id: 'novel',
-    api: 'https://novel.sh/api/generate',
-    onFinish: (_prompt, completion) => {
+  const { complete, completion, isLoading, stop } = useAICompletion({
+    editor: editor,
+    onFinish: (prompt: string, completion: string) => {
       editor?.commands.setTextSelection({
         from: editor.state.selection.from - completion.length,
         to: editor.state.selection.from,
       });
-    },
-    onError: (err) => {
-      // toast.error(err.message);
     },
   });
 

@@ -32,6 +32,7 @@ import {
 
 import { startImageUpload } from './upload-image';
 import { getPrevText } from './utils';
+import useAICompletion from '../hooks/useAICompletion';
 
 const SlashCommandContainer = styled.div`
   background-color: white;
@@ -307,26 +308,14 @@ const CommandList = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const { complete, isLoading } = useCompletion({
-    id: 'novel',
-    api: 'https://novel.sh/api/generate',
-    onResponse: (response: any) => {
-      if (response.status === 429) {
-        console.error('You have reached your request limit for the day.');
-        return;
-      }
-      editor.chain().focus().deleteRange(range).run();
-    },
-    onFinish: (_prompt: any, completion: any) => {
-      // highlight the generated text
+  const { complete, isLoading } = useAICompletion({
+    editor: editor,
+    onFinish: (prompt: string, completion: string) => {
       editor.commands.setTextSelection({
         from: range.from,
         to: range.from + completion.length,
       });
-    },
-    onError: () => {
-      console.error('Something went wrong.');
-    },
+    }
   });
 
   const selectItem = useCallback(

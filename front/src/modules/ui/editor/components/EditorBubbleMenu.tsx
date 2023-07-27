@@ -1,5 +1,3 @@
-/* eslint twenty/no-hardcoded-colors: 0 */
-
 import { FC, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
