@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { getOperationName } from '@apollo/client/utilities';
 import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -6,6 +7,7 @@ import { GET_COMPANIES } from '@/companies/queries';
 import { CompanyTable } from '@/companies/table/components/CompanyTable';
 import { TableActionBarButtonCreateActivityCompany } from '@/companies/table/components/TableActionBarButtonCreateActivityCompany';
 import { TableActionBarButtonDeleteCompanies } from '@/companies/table/components/TableActionBarButtonDeleteCompanies';
+import { ReactSpreadsheetImport } from '@/spreadsheet-import';
 import { IconBuildingSkyscraper } from '@/ui/icon';
 import { WithTopBarContainer } from '@/ui/layout/components/WithTopBarContainer';
 import { EntityTableActionBar } from '@/ui/table/action-bar/components/EntityTableActionBar';
@@ -58,6 +60,12 @@ export function Companies() {
           </EntityTableActionBar>
         </RecoilScope>
       </WithTopBarContainer>
+      <ReactSpreadsheetImport
+        isOpen={true}
+        onSubmit={() => {}}
+        onClose={() => {}}
+        fields={[]}
+      />
     </>
   );
 }

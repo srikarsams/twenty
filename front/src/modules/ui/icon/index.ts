@@ -53,3 +53,4 @@ export { IconPencil } from '@tabler/icons-react';
 export { IconCircleDot } from '@tabler/icons-react';
 export { IconTag } from '@tabler/icons-react';
 export { IconHelpCircle } from '@tabler/icons-react';
+export { IconCross } from '@tabler/icons-react';
